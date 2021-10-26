@@ -1,19 +1,61 @@
+@import url(//db.onlinewebfonts.com/c/395410b1fd4cca8cfb17bd78a9c34889?family=Helvetica+Monospaced);
+
+:root {
+  --font: Helvetica Monospaced;
+}
+
 body {
   margin: 0 10px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.thought-container {
+  border: 1px solid black;
+  padding: 15px;
+  margin-bottom: 30px;
+  box-shadow: 6px 6px;
+  width: 350px;
+  height: 120px;
 }
 
-.thoughts-container {
-  border: 1px solid gray;
-  padding: 5px;
-  margin-bottom: 5px;
+.new {
+  background-color: #F2F0F0;
 }
+
+.new-thought-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.new-thought-form input {
+  appearance: none;
+  width: 340px;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 5px;
+  height: 40px;
+  border-color: #e0dfdf;;
+}
+
+.thought-button {
+  background-color: #FFADAD;
+  border-color: transparent;
+  border-radius: 50px;
+  padding: 10px;
+  width: fit-content;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+}
+
+
+
+

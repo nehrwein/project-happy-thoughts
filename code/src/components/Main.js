@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react"
-import moment from "moment"
 import { API_URL } from "./../utils/urls"
+import NewThought from "./NewThought"
+import ThoughtCard from "./ThoughtCard"
 
 
 const Main = () => {
-  const [thoughts, setThoughts] = useState([])   /* is created to get the existing list of thoughts. the state is an empty array to start with */
+  const [thoughts, setThoughts] = useState([])   /* is created to get the existing list of thoughts. the state is an empty array in the beginning */
   const [newThought, setNewThought] = useState('')  /* is created to hold the happy thought, that we want to post to the API */
 
   useEffect(() => {                              /* After the .thoughts-container is mounted, the data gets fetched from the API and updates the thoughts[] */
@@ -13,6 +14,7 @@ const Main = () => {
       .then((data) => setThoughts(data))
   }, [])
 
+  console.log('Data: ', thoughts)  
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -30,27 +32,33 @@ const Main = () => {
       .then((data) => setThoughts([data,...thoughts]))  /* the new thought is added with spread (...) to the existing thoughts */
   }
 
+  /* While executing POST request for likes amount, we don't actually have to implement body property inside options object. API expects from us only unique ID inside url, that's the essence of this request. */
+  /* const sendLike = (id) => {
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: {}      
+    }
+
+    fetch(`https://happy-thoughts-technigo.herokuapp.com/thoughts/${id}/like`, options
+  } */
+
   return (
     <div>
-      <form onSubmit={onFormSubmit}>
-        <label>Type your happy thought
-          <input 
-            type="text"
-            value={newThought}
-            onChange={event => setNewThought(event.target.value)}
-          />
-        </label>
-        <button type="submit">Send</button>
-      </form>
+      <NewThought 
+        onFormSubmit={onFormSubmit}
+        newThought={newThought}
+        setNewThought={setNewThought}
+      />
 
-      {thoughts.map(thought => (                                          /* thoughts get injected from the fetched data */
-        <div key={thought._id} className="thoughts-container">
-          <p>{thought.message}</p>    
-          <button>&hearts;</button>
-          <span> x{thought.hearts} </span>
-          <span> {moment(thought.createdAt).fromNow()}</span>
-        </div>
-      ))}
+      {thoughts.length > 0 && (
+        <ThoughtCard
+          thoughts={thoughts}
+        />)
+      }
     </div>
   )  
 }
