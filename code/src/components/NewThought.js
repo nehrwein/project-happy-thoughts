@@ -8,11 +8,13 @@ const NewThought = (props) => {
         className="new-thought-form"
         onSubmit={props.onFormSubmit}>
           <label>What's making you happy right now?
-            <input 
-              type="text"
+            <textarea 
+              rows={2} 
+              cols={40}
               value={props.newThought}
               onChange={event => props.setNewThought(event.target.value)}
-            />
+            >
+            </textarea>
           </label>
           <Button
             className={"thought-button"} 
