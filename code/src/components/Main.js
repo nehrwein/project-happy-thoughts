@@ -9,10 +9,14 @@ const Main = () => {
   const [newThought, setNewThought] = useState('')  /* is created to hold the happy thought, that we want to post to the API */
 
   useEffect(() => {                              /* After the .thoughts-container is mounted, the data gets fetched from the API and updates the thoughts[] */
+    fetchAllThoughts()
+  }, [])
+
+  const fetchAllThoughts = () => {
     fetch(API_URL)
       .then(response => response.json())
       .then((data) => setThoughts(data))
-  }, [])
+  }
 
   console.log('Data: ', thoughts)  
 
@@ -29,22 +33,10 @@ const Main = () => {
 
     fetch(API_URL, options)
       .then(response => response.json())
-      .then((data) => setThoughts([data,...thoughts]))  /* the new thought is added with spread (...) to the existing thoughts */
-  }
-
-  /* While executing POST request for likes amount, we don't actually have to implement body property inside options object. API expects from us only unique ID inside url, that's the essence of this request. */
-  /* const sendLike = (id) => {
-
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: {}      
+      /* .then((data) => setThoughts([data,...thoughts])) */  /* the new thought is added with spread (...) to the existing thoughts */
+      .then((data) => fetchAllThoughts())
     }
 
-    fetch(`https://happy-thoughts-technigo.herokuapp.com/thoughts/${id}/like`, options
-  } */
 
   return (
     <div>
@@ -57,6 +49,7 @@ const Main = () => {
       {thoughts.length > 0 && (
         <ThoughtCard
           thoughts={thoughts}
+          fetchAllThoughts={fetchAllThoughts}
         />)
       }
     </div>

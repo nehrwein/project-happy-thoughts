@@ -1,5 +1,16 @@
 import React from "react"
 
-const Header = () => <h1>Happy thoughts</h1>
+const Header = () => {
+  return (
+    <>
+      <h1>Happy thoughts</h1>
+      <span 
+        className="top-heart"
+        role="img"
+        aria-label="jsx-a11y/accessible-emoji">&nbsp; ❤️</span>
+    </>
+  )
+}
+
 
 export default Header

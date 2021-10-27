@@ -5,7 +5,7 @@
 }
 
 body {
-  margin: 0 10px;
+  padding: 0 10px;
   font-family: var(--font);
   font-size: 12px;
   font-weight: bold;
@@ -13,12 +13,66 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  display: inline-block;
+}
+
+
+
+/* @keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( .75 );
+  }
+  20%
+  {
+    transform: scale( 1 );
+  }
+  40%
+  {
+    transform: scale( .75 );
+  }
+  60%
+  {
+    transform: scale( 1 );
+  }
+  80%
+  {
+    transform: scale( .75 );
+  }
+  100%
+  {
+    transform: scale( .75 );
+  }
+} */
+
+.top-heart {
+  font-size: 20px;
+  /* animation: heartbeat 1s infinite; */
+}
+
+
 .thought-container {
   border: 1px solid black;
-  padding: 15px 0 15px 15px;
+  padding: 15px;
   margin-bottom: 30px;
   box-shadow: 6px 6px;
-  width: 85%;
+  width: 90%;
+}
+
+.button-span-container{
+  display: flex;
+  align-items: center;
+}
+
+.span-container{
+  color: lightgrey;
+  font-weight: normal;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 6px;
 }
 
 .new {
@@ -52,6 +106,10 @@ body {
   font-size: 12px;
   font-weight: bold;
   color: black;
+}
+
+.grey {
+  background-color: #EAEAEA;
 }
 
 
