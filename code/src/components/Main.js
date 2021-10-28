@@ -46,8 +46,10 @@ const Main = () => {
       /* .then((data) => setThoughts([data,...thoughts])) */  /* the new thought is added with spread (...) to the existing thoughts. This method would a good alternative to (data) => fetchAllThoughts() for bigger data-transfers, because it's more specific and thereby causes less data-traffic */
       
       .then((data) => {
-        showErrors(data.errors.message.kind)
-        fetchAllThoughts()})
+        if (data.errors) {
+          showErrors(data.errors.message.kind)
+        } else fetchAllThoughts()
+      })
     }
 
 

@@ -5,8 +5,7 @@ import { LIKES_API_URL } from "./../utils/urls"
 
 const ThoughtCard = (props) => {
 
-  const [postsILike, setPostsILike] = useState()
-  console.log('Den Post mag ich: ', postsILike)
+  const [postsILike, setPostsILike] = useState([])
 
   /* While executing POST request for likes amount, we don't actually have to implement body property inside options object. The information for the API is provided by the unique ID that comes with the URL. */
   const handleSendLike = (id) => {
@@ -29,7 +28,7 @@ const ThoughtCard = (props) => {
             <Button
               onClick={() => {
                 handleSendLike(thought._id)
-                setPostsILike(thought._id)
+                setPostsILike([thought._id,...postsILike])
               }}
               className={thought.hearts > 0 ? "thought-button" : "thought-button grey"}
               text={<>❤️</>}
