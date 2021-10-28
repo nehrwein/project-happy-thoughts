@@ -16,14 +16,17 @@ const NewThought = (props) => {
             >
             </textarea>
           </label>
-          <Button
-            className={"thought-button"} 
-            type={"submit"}
-            text={<>❤️ Send Happy Thought ❤️</>}
-            disabled={props.newThought.length < 6 || props.newThought.length > 140}
-          />
-        </form>
-      </div>
+        <span 
+          className={props.newThought.length > 140 ? "thought-button" : "thought-button grey"}
+          >{props.newThought.length}/140</span>  
+        <Button
+          className={"thought-button"} 
+          type={"submit"}
+          text={<>❤️ Send Happy Thought ❤️</>}
+          disabled={props.newThought.length < 6 || props.newThought.length > 140}
+        />
+      </form>
+    </div>
   )
 }
 

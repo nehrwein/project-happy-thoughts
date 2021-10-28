@@ -1,10 +1,15 @@
 @import url(//db.onlinewebfonts.com/c/395410b1fd4cca8cfb17bd78a9c34889?family=Helvetica+Monospaced);
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --font: Helvetica Monospaced;
 }
 
 body {
+  margin: 0;
   padding: 0 10px;
   font-family: var(--font);
   font-size: 12px;
@@ -13,45 +18,63 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Header-section */
+
 h1 {
   display: inline-block;
 }
 
 
-
-/* @keyframes heartbeat
-{
-  0%
-  {
-    transform: scale( .75 );
-  }
-  20%
-  {
-    transform: scale( 1 );
-  }
-  40%
-  {
-    transform: scale( .75 );
-  }
-  60%
-  {
-    transform: scale( 1 );
-  }
-  80%
-  {
-    transform: scale( .75 );
-  }
-  100%
-  {
-    transform: scale( .75 );
-  }
-} */
-
-.top-heart {
+.top-heart::after {
   font-size: 20px;
-  /* animation: heartbeat 1s infinite; */
+  content: '💗';
+  animation: hearts 3s infinite;
 }
 
+@keyframes hearts {
+  16.666% {
+      content: '🧡';
+  }
+
+  33.333% {
+      content: '💛';
+  }
+
+  50% {
+      content: '💚';
+  }
+
+  66.666% {
+      content: '💙';
+  }
+
+  83.333% {
+      content: '💜';
+  }
+}
+
+
+/* Insertion of new Thought */
+
+.new-thought-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.new-thought-form textarea {
+  display: block;
+  resize: none;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 0;
+  padding: 10px;
+  border-color: #e0dfdf;
+}
+
+/* Thought cards (styling also used for the New-Thought-section) */
 
 .thought-container {
   border: 1px solid black;
@@ -79,22 +102,6 @@ h1 {
   background-color: #F2F0F0;
 }
 
-.new-thought-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.new-thought-form textarea {
-  resize: none;
-  font-family: var(--font);
-  font-size: 12px;
-  font-weight: bold;
-  margin: 10px 0;
-  padding: 10px;
-  border-color: #e0dfdf;
-}
 
 .thought-button {
   background-color: #FFADAD;
@@ -106,12 +113,22 @@ h1 {
   font-size: 12px;
   font-weight: bold;
   color: black;
+  transition: all .2s ease-in-out;
 }
 
+.thought-button:hover {
+  transform: scale(1.1);
+}
+
+/* conditionally used background-color for thoughts with 0 likes */
 .grey {
-  background-color: #EAEAEA;
+  background-color: #F2F0F0;
 }
 
+
+.footer {
+  text-align: center;
+}
 
 
 

@@ -7,7 +7,7 @@ const Header = () => {
       <span 
         className="top-heart"
         role="img"
-        aria-label="jsx-a11y/accessible-emoji">&nbsp; ❤️</span>
+        aria-label="jsx-a11y/accessible-emoji"> </span>
     </>
   )
 }
