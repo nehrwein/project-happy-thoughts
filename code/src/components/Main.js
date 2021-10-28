@@ -9,6 +9,7 @@ const Main = () => {
   const [thoughts, setThoughts] = useState([])   /* is created to get the existing list of thoughts. the state is an empty array in the beginning */
   const [newThought, setNewThought] = useState('')  /* is created to hold the happy thought, that we want to post to the API */
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
 
   useEffect(() => {                              /* After the .thoughts-container is mounted, the data gets fetched from the API and updates the thoughts[] */
@@ -21,6 +22,11 @@ const Main = () => {
       .then(response => response.json())
       .then((data) => setThoughts(data))
       .finally(() => setLoading(false))
+  }
+
+  const showErrors = (error) => {
+    setError(error)
+    console.log('Fehler: ', error)
   }
 
 
@@ -38,18 +44,22 @@ const Main = () => {
     fetch(API_URL, options)
       .then(response => response.json())
       /* .then((data) => setThoughts([data,...thoughts])) */  /* the new thought is added with spread (...) to the existing thoughts. This method would a good alternative to (data) => fetchAllThoughts() for bigger data-transfers, because it's more specific and thereby causes less data-traffic */
-      .then((data) => fetchAllThoughts())
+      
+      .then((data) => {
+        showErrors(data.errors.message.kind)
+        fetchAllThoughts()})
     }
 
 
   return (
     <>
       {loading && <Spinner />}
-      
+
       <NewThought 
-        onFormSubmit={onFormSubmit}
+        handleFormSubmit={onFormSubmit}
         newThought={newThought}
         setNewThought={setNewThought}
+        error={error}
       />
 
       {thoughts.length > 0 && (

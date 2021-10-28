@@ -6,7 +6,7 @@ const NewThought = (props) => {
     <div className="thought-container new">
       <form 
         className="new-thought-form"
-        onSubmit={props.onFormSubmit}>
+        onSubmit={props.handleFormSubmit}>
           <label>What's making you happy right now?
             <textarea 
               rows={2} 
@@ -17,13 +17,19 @@ const NewThought = (props) => {
             </textarea>
           </label>
         <span 
-          className={props.newThought.length > 140 ? "thought-button" : "thought-button grey"}
+          className={props.newThought.length > 140 ? "red" : ""}
           >{props.newThought.length}/140</span>  
+
+        <span className="red">{
+          props.error === "required" ? "Please type a thought!" :
+          props.error === "minlength" ? "Type more than 5 letters" :
+          props.error === "maxlength" ? "Please type less than 140 letters" : ""}</span>  
+
         <Button
           className={"thought-button"} 
           type={"submit"}
           text={<>❤️ Send Happy Thought ❤️</>}
-          disabled={props.newThought.length < 6 || props.newThought.length > 140}
+         /*  disabled={props.newThought.length < 6 || props.newThought.length > 140} */
         />
       </form>
     </div>
