@@ -29,7 +29,6 @@ const NewThought = (props) => {
           className={"thought-button"} 
           type={"submit"}
           text={<>❤️ Send Happy Thought ❤️</>}
-         /*  disabled={props.newThought.length < 6 || props.newThought.length > 140} */
         />
       </form>
     </div>

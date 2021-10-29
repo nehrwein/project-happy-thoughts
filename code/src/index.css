@@ -1,12 +1,12 @@
-@import url(//db.onlinewebfonts.com/c/395410b1fd4cca8cfb17bd78a9c34889?family=Helvetica+Monospaced);
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400;500;600;700&display=swap');
 
 * {
   box-sizing: border-box;
 }
 
 :root {
-  --font: Helvetica Monospaced;
-}
+  --font: 'JetBrains Mono', monospace;
+}  
 
 body {
   margin: 0;

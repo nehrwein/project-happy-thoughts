@@ -26,7 +26,6 @@ const Main = () => {
 
   const showErrors = (error) => {
     setError(error)
-    console.log('Fehler: ', error)
   }
 
 
@@ -50,6 +49,7 @@ const Main = () => {
           showErrors(data.errors.message.kind)
         } else fetchAllThoughts()
       })
+      .finally(setNewThought(''))
     }
 
 
@@ -57,7 +57,7 @@ const Main = () => {
     <>
       {loading && <Spinner />}
 
-      <NewThought 
+        <NewThought 
         handleFormSubmit={onFormSubmit}
         newThought={newThought}
         setNewThought={setNewThought}
