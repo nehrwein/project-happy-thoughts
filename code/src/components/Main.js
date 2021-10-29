@@ -26,6 +26,7 @@ const Main = () => {
 
   const showErrors = (error) => {
     setError(error)
+    setTimeout(() => setError(''), 1000)
   }
 
 
