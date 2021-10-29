@@ -22,8 +22,38 @@
 
 @keyframes left-to-right {
   to {
-    left: 83%;
+    left: 88%;
     top: 24px;
     transform:translate(-100%,-100%);
+  }
+}
+
+
+@media (min-width: 667px) {
+  .pop-up p {
+    left: 20%;
+  }
+
+  @keyframes left-to-right {
+    to {
+      left: 68%;
+      top: 24px;
+      transform:translate(-100%,-100%);
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+
+  .pop-up p {
+    left: 50%;
+  }
+
+  @keyframes left-to-right {
+    to {
+      left: 60%;
+      top: 24px;
+      transform:translate(-100%,-100%);
+    }
   }
 }
