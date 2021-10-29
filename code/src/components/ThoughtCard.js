@@ -13,7 +13,6 @@ const ThoughtCard = (props) => {
 
   useEffect(() => {
     setNewLike(true)
-    console.log("updated")
     setTimeout(() => setNewLike(false), 3000)
   }, [uniquePostsILike.size])
   
@@ -34,8 +33,9 @@ const ThoughtCard = (props) => {
   }    
 
   return(
-    <>
+    <div className="">
       {newLike && <PopUp 
+        className={"pop-up"}
         noOfLikes={uniquePostsILike.size}
       />}
       <div>
@@ -59,7 +59,7 @@ const ThoughtCard = (props) => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   )
 }
 

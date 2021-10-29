@@ -1,0 +1,29 @@
+.pop-up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+
+
+}
+
+.pop-up p {
+  position: relative;
+  display:inline-block;
+  left: 0;
+  top: 50%;
+  color: red;
+  font-weight: bold;
+  font-size: 30px;
+  animation: left-to-right 2s ease-out forwards;
+}
+
+@keyframes left-to-right {
+  to {
+    left: 83%;
+    top: 24px;
+    transform:translate(-100%,-100%);
+  }
+}
