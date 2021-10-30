@@ -8,8 +8,8 @@ import Spinner from "./Spinner"
 const Main = () => {
   const [thoughts, setThoughts] = useState([])   /* is created to get the existing list of thoughts. the state is an empty array in the beginning */
   const [newThought, setNewThought] = useState('')  /* is created to hold the happy thought, that we want to post to the API */
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)   /* is created for the loading spinner */
+  const [error, setError] = useState('')        /* holds the value in case there is an error message coming from the API */
 
 
   useEffect(() => {                              /* After the .thoughts-container is mounted, the data gets fetched from the API and updates the thoughts[] */
@@ -38,7 +38,7 @@ const Main = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ message:newThought })      /* The message we want to post needs to be converted to JSON-format */
+      body: JSON.stringify({ message:newThought })      /* The message we want to post on the API needs to be converted to JSON-format */
     }
 
     fetch(API_URL, options)

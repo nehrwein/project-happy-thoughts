@@ -9,17 +9,15 @@ const ThoughtCard = (props) => {
   const [postsILike, setPostsILike] = useState([])
   const [newLike, setNewLike] = useState(false)
 
-  const uniquePostsILike = new Set(postsILike)
+  const uniquePostsILike = new Set(postsILike)  /* getting rid of repeating IDs with creating a Set */
 
-  useEffect(() => {
+  useEffect(() => {                             /* using useEffect in combination with setThimeout to show the PopUp for 3sek every time a new value gets added to the set.  */
     setNewLike(true)
     setTimeout(() => setNewLike(false), 3000)
   }, [uniquePostsILike.size])
   
 
-
-
-  /* While executing POST request for likes amount, we don't actually have to implement body property inside options object. The information for the API is provided by the unique ID that comes with the URL. */
+  /* While executing POST request for likes amount, there's no need to implement the body/header - property inside the options object. The information for the API is provided by the unique ID that comes with the URL. */
   const handleSendLike = (id) => {
 
     const options = {

@@ -1,6 +1,7 @@
 import React from "react"
 import "./PopUp.css"
 
+/* The PopUp (animated amount of unique likes & heart)  gets shown everytime a unique thought is liked.  */
 const PopUp = ( props ) => {
   return(
     <div className={props.className}>

@@ -1,12 +1,11 @@
+/* The PopUp (animated amount of unique likes & heart)  gets shown everytime a unique thought is liked.  */
+
 .pop-up {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-
-
 }
 
 .pop-up p {
@@ -37,7 +36,7 @@
   @keyframes left-to-right {
     to {
       left: 68%;
-      top: 24px;
+      top: 30px;
       transform:translate(-100%,-100%);
     }
   }
@@ -52,7 +51,7 @@
   @keyframes left-to-right {
     to {
       left: 60%;
-      top: 24px;
+      top: 35px;
       transform:translate(-100%,-100%);
     }
   }

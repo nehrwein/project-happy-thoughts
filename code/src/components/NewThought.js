@@ -16,11 +16,11 @@ const NewThought = (props) => {
           </label>
 
         <span 
-          className={props.newThought.length > 140 ? "red" : "letter-amount"}>
+          className={props.newThought.length > 140 ? "red" : "letter-amount"}>     {/* changing the className conditionally for showing different color, when the amount of letter is > 140 */}
             {props.newThought.length}/140
         </span>    
         
-        <span className="alert red">{
+        <span className="alert red">{                                              /* displayed error messages according to API error messages */     
           props.error === "required" ? "Please type a thought!" :
           props.error === "minlength" ? "Type more than 5 letters" :
           props.error === "maxlength" ? "Please type less than 140 letters" : ""}</span>  

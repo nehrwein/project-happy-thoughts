@@ -152,17 +152,25 @@ h1 {
   text-align: center;
 }
 
-@media (min-width: 667px) {
 
-  .new-thought-form textarea {
-    height: 90px;
-  }
+/* TABLET */
+
+@media (min-width: 667px) {
 
   :root {
     --size: 14px;
   }
 
+  .top-heart::after {
+    font-size: 24px;
+  }
+
+  .new-thought-form textarea {
+    height: 90px;
+  }
 }
+
+/* DESKTOP */
 
 @media (min-width: 1024px) {
 
@@ -170,4 +178,7 @@ h1 {
     --size: 16px;
   }
 
+  .top-heart::after {
+    font-size: 25px;
+  }
 }
