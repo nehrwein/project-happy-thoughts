@@ -1,13 +1,29 @@
 # Happy Thoughts
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In this project I created my own positive Twitter-version, called "Happy thoughts". It's connected to a simple API provided by Technigo.
 
 ## The problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+With "Happy thoughts" I got to practice more how to work with an API, this time not only fetching, but also posting data. Regarding React, I got to play around with the useEffect for the first time.
+
+So here are my learnings:
+- What component lifecycle means.
+- How to use the `useEffect` hook in React to perform actions when components mount, unmount, or when state changes.
+- How to call APIs from React and put the data into state.
+- What it's like to work with an API which I both send and receive data from.
+- I was using animations for the first time. If I would have had more time for this project, I would like to dive deeper into that subject.
+
+List of implementations for "Happy thoughts"
+- A list of the most recent thoughts at the top and older thoughts at the bottom (sorted)
+- The thoughts show the content of the message and how many likes they've received
+- There's a form to post new thoughts and a heart button to send likes on a thought
+- A count below the form input updates as the user types and shows how many characters are remaining. It goes red when the user has typed over 140 characters
+- When POSTing a new thought, if the message was empty, too long, or too short, the API sends an error message. I use this to set an `error` state to show a friendly message to the user. 
+- There's a loading spinner that shows, while the data gets loaded during API calls       
+- A count of how many different posts the user likes is showing as a fly-in animation (different from how many times a post has been liked). 
+- I followed a given design. For the font I used JetBrains Mono, https://fonts.google.com/specimen/JetBrains+Mono
+
 
 ## View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+Send some Happy thoughts <3 : https://nehrwein-happy-thoughts.netlify.app/
