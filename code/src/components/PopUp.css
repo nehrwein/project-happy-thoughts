@@ -1,4 +1,4 @@
-/* The PopUp (animated amount of unique likes & heart)  gets shown everytime a unique thought is liked.  */
+/* The PopUp (animated amount of unique likes & heart) gets shown everytime a unique thought is liked.  */
 
 .pop-up {
   position: absolute;
@@ -8,11 +8,12 @@
   bottom: 0;
 }
 
+/* working on starting the animation on mouse position instead of fixed values */
 .pop-up p {
   position: relative;
   display:inline-block;
-  left: 0;
-  top: 50%;
+/*   left: 0;
+  top: 50%; */
   color: red;
   font-weight: bold;
   font-size: 30px;
