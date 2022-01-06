@@ -40,6 +40,7 @@ const ThoughtCard = (props) => {
         {props.thoughts.map((thought) => (                              /* thoughts get injected from the fetched data */
           <div key={thought._id} className="thought-container">
             <p>{thought.message}</p>
+            <p>{thought.author}</p>
             <div className="button-span-container">    
               <Button
                 onClick={() => {

@@ -8,6 +8,7 @@ import Spinner from "./Spinner"
 const Main = () => {
   const [thoughts, setThoughts] = useState([])   /* is created to get the existing list of thoughts. the state is an empty array in the beginning */
   const [newThought, setNewThought] = useState('')  /* is created to hold the happy thought, that we want to post to the API */
+  const [name, setName] = useState('')           /* sets the name of the thought's author */       
   const [loading, setLoading] = useState(false)   /* is created for the loading spinner */
   const [error, setError] = useState('')        /* holds the value in case there is an error message coming from the API */
 
@@ -38,7 +39,7 @@ const Main = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ message:newThought })      /* The message we want to post on the API needs to be converted to JSON-format */
+      body: JSON.stringify({ message:newThought, author:name })      /* The message and name we want to post on the API needs to be converted to JSON-format */
     }
 
     fetch(API_URL, options)
@@ -58,10 +59,12 @@ const Main = () => {
     <>
       {loading && <Spinner />}
 
-        <NewThought 
+      <NewThought 
         handleFormSubmit={onFormSubmit}
         newThought={newThought}
         setNewThought={setNewThought}
+        name={name}
+        setName={setName}
         error={error}
       />
 
