@@ -58,7 +58,7 @@ const NewThought = (props) => {
         <Button
           className={"thought-button"} 
           type={"submit"}
-          text={<>❤️ Send Happy Thought ❤️</>}
+          text={<>❤️ Send ❤️</>}
         />
 
       </form>
