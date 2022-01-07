@@ -29,7 +29,6 @@ const ThoughtCard = (props) => {
   }   
   
   const emojiPicker = (category) => {
-    console.log(category)
     if (category === 'Animals') {
       return <>🐶</>;
     } else if (category === 'Just Happy') {

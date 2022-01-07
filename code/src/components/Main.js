@@ -9,7 +9,7 @@ const Main = () => {
   const [thoughts, setThoughts] = useState([])   /* is created to get the existing list of thoughts with all entries from the database */
   const [newThought, setNewThought] = useState('')  /* is created to hold the happy thought, that we want to post to the API */
   const [name, setName] = useState('')           /* sets the name of the thought's author */ 
-  const [category, setCategory] = useState('')      
+  const [category, setCategory] = useState('')      /* sets the chosen category for thoughts */
   const [loading, setLoading] = useState(false)   /* is created for the loading spinner */
   const [error, setError] = useState('')        /* holds the value in case there is an error message coming from the API */
 
@@ -45,10 +45,9 @@ const Main = () => {
     fetch(API_URL, options)
       .then(response => response.json())
       /* .then((data) => setThoughts([data,...thoughts])) */  /* the new thought is added with spread (...) to the existing thoughts. This method would be a good alternative to (data) => fetchAllThoughts() for bigger data-transfers, because it's more specific and thereby causes less data-traffic */
-      
       .then((data) => {
-        if (data.errors) {
-          showErrors(data.errors.message.kind)
+        if (data.response.errors) {
+          showErrors(data.response.errors.message.kind)
         } else fetchAllThoughts()
       })
       .finally(() => {

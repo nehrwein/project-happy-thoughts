@@ -18,27 +18,33 @@ const NewThought = (props) => {
           </textarea>
         </label>
 
-        <select 
-          id='categories'
-          value={props.category}
-          onChange={event => props.setCategory(event.target.value)}
-        >
-          <option disabled value="">Select category: </option>
-          {options.map((opt)=> (
-            <option 
-              key={opt} 
-              value={opt}>{opt}
-            </option>))}
-        </select>
+        <div className="category-letter-container">
+          <select 
+            id='categories'
+            value={props.category}
+            onChange={event => props.setCategory(event.target.value)}
+          >
+            <option disabled value="">Select category: </option>
+            {options.map((opt)=> (
+              <option 
+                key={opt} 
+                value={opt}>{opt}
+              </option>))}
+          </select>
 
-        <span 
-          className={props.newThought.length > 140 ? "red" : "letter-amount"}>     {/* changing the className conditionally for showing different color, when the amount of letter is > 140 */}
-            {props.newThought.length}/140
-        </span>  
+          <span             
+            className={props.newThought.length > 140 ? 
+              "red" : 
+              "letter-amount"
+            }>     {/* changing the className conditionally for showing different color, when the amount of letter is > 140 */}
+              {props.newThought.length}/140
+          </span>  
+        </div>    
 
-        <label>Your name 
+        <label> 
           <input 
             type={"text"}
+            placeholder="Your name (optional)"
             value={props.name}
             onChange={e => props.setName(e.target.value)} 
           />

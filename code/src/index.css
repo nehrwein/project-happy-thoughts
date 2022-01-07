@@ -73,7 +73,7 @@ h1 {
   font-size: 12px;
   font-family: var(--font);
   font-weight: bold;
-  margin: 10px 0;
+  margin: 10px 0 3px 0;
   padding: 5px;
   border-color: #e0dfdf;
   width: 100%;
@@ -81,8 +81,17 @@ h1 {
   resize: none;
 }
 
+.category-letter-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;;
+}
+
 select {
   width: fit-content;
+  background-color: inherit;
 }
 
 /* Thought cards (styling also used for the New-Thought-section) */
@@ -125,6 +134,7 @@ select {
   background-color: #ffadad;
   border-color: transparent;
   border-radius: 50px;
+  margin-top: 2px;
   padding: 10px;
   width: fit-content;
   font-family: var(--font);
