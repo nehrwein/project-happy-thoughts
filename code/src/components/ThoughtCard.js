@@ -19,16 +19,31 @@ const ThoughtCard = (props) => {
 
   /* While executing POST request for likes amount, there's no need to implement the body/header - property inside the options object. The information for the API is provided by the unique ID that comes with the URL. */
   const handleSendLike = (id) => {
-
     const options = {
       method: 'POST',
     }
 
     fetch(LIKES_API_URL(id), options)
       .then(res => res.json())
-      .then((data) => props.fetchAllThoughts())
-      
-  }    
+      .then((data) => props.fetchAllThoughts()) 
+  }   
+  
+  const emojiPicker = (category) => {
+    console.log(category)
+    if (category === 'Animals') {
+      return <>🐶</>;
+    } else if (category === 'Just Happy') {
+      return <>🌈</>;
+    } else if (category === 'Food') {
+      return <>🍕</>;
+    } else if (category === 'Home') {
+      return <>🏠</>;
+    } else if (category === 'Project') {
+      return <>🔨</>;
+    } else {
+      return;
+    }  
+  };
 
   return(
     <div className="">
@@ -39,8 +54,9 @@ const ThoughtCard = (props) => {
       <div>
         {props.thoughts.map((thought) => (                              /* thoughts get injected from the fetched data */
           <div key={thought._id} className="thought-container">
-            <p>{thought.message}</p>
-            <p>{thought.author}</p>
+            <span>{thought.message} </span>
+            <span>{emojiPicker(thought.category)}</span>
+            <span style={{fontStyle: 'italic', float: "right"}}>{thought.author ? `by ${thought.author}` : ""}</span>
             <div className="button-span-container">    
               <Button
                 onClick={() => {

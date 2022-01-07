@@ -2,18 +2,34 @@ import React from "react"
 import Button from "./Button"
 
 const NewThought = (props) => {
+  const options = ['Food', 'Animals', 'Home', 'Project', 'Just Happy']
+
   return (
     <div className="thought-container new">
       <form 
         className="new-thought-form"
-        onSubmit={props.handleFormSubmit}>
-          <label>What's making you happy right now?
-            <textarea 
-              value={props.newThought}
-              onChange={event => props.setNewThought(event.target.value)}
-            >
-            </textarea>
-          </label>
+        onSubmit={props.handleFormSubmit}
+      >
+        <label>What's making you happy right now?
+          <textarea 
+            value={props.newThought}
+            onChange={event => props.setNewThought(event.target.value)}
+          >
+          </textarea>
+        </label>
+
+        <select 
+          id='categories'
+          value={props.category}
+          onChange={event => props.setCategory(event.target.value)}
+        >
+          <option disabled value="">Select category: </option>
+          {options.map((opt)=> (
+            <option 
+              key={opt} 
+              value={opt}>{opt}
+            </option>))}
+        </select>
 
         <span 
           className={props.newThought.length > 140 ? "red" : "letter-amount"}>     {/* changing the className conditionally for showing different color, when the amount of letter is > 140 */}
