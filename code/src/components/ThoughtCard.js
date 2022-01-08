@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import moment from "moment"
 import Button from "./Button"
+import Emoji from "./Emoji"
 import { LIKES_API_URL } from "./../utils/urls"
 import PopUp from "./PopUp"
 
@@ -29,16 +30,17 @@ const ThoughtCard = (props) => {
   }   
   
   const emojiPicker = (category) => {
+
     if (category === 'Animals') {
-      return <>🐶</>;
+      return <Emoji symbol="🐶" label="dog" role="img"/>;
     } else if (category === 'Just Happy') {
-      return <>🌈</>;
+      return <Emoji symbol="🌈" label="rainbow" role="img"/>;
     } else if (category === 'Food') {
-      return <>🍕</>;
+      return <Emoji symbol="🍕" label="pizza slice" role="img"/>;
     } else if (category === 'Home') {
-      return <>🏠</>;
+      return <Emoji symbol="🏠" label="house" role="img"/>;
     } else if (category === 'Project') {
-      return <>🔨</>;
+      return <Emoji symbol="🔨" label="hammer" role="img"/>;
     } else {
       return;
     }  
@@ -63,7 +65,7 @@ const ThoughtCard = (props) => {
                   setPostsILike([thought._id,...postsILike])
                 }}
                 className={thought.hearts > 0 ? "thought-button" : "thought-button grey"}
-                text={<>❤️</>}
+                text={<Emoji symbol="❤️" label="heart" role="img"/>}
               />
               <div className="span-container">
                 <span> x{thought.hearts} </span>

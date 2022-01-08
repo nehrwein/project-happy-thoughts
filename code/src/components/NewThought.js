@@ -1,5 +1,6 @@
 import React from "react"
 import Button from "./Button"
+import Emoji from "./Emoji"
 
 const NewThought = (props) => {
   const options = ['Food', 'Animals', 'Home', 'Project', 'Just Happy']
@@ -58,8 +59,12 @@ const NewThought = (props) => {
         <Button
           className={"thought-button"} 
           type={"submit"}
-          text={<>❤️ Send ❤️</>}
-        />
+          text={<>
+            <Emoji symbol="❤️" label="heart" role="img"/>
+            Send
+            <Emoji symbol="❤️" label="heart" role="img"/>
+          </>}>
+        </Button>
 
       </form>
     </div>

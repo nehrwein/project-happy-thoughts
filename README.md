@@ -1,6 +1,6 @@
 # Happy Thoughts
 
-In this project I created my own positive Twitter-version, called "Happy thoughts". It's connected to a simple API provided by Technigo.
+In this project I created my own positive Twitter-version, called "Happy thoughts". It's connected to an API that I was building in another project.
 
 ## The problem
 
@@ -14,6 +14,7 @@ So here are my learnings:
 - I was using animations for the first time. If I would have had more time for this project, I would like to dive deeper into that subject.
 
 List of implementations for "Happy thoughts"
+October 21
 - A list of the most recent thoughts at the top and older thoughts at the bottom (sorted)
 - The thoughts show the content of the message and how many likes they've received
 - There's a form to post new thoughts and a heart button to send likes on a thought
@@ -23,7 +24,16 @@ List of implementations for "Happy thoughts"
 - A count of how many different posts the user likes is showing as a fly-in animation (different from how many times a post has been liked). 
 - I followed a given design. For the font I used JetBrains Mono, https://fonts.google.com/specimen/JetBrains+Mono
 
+Jan 22
+- option to send the author's name with every Happy thought
+- option to add a category to the Happy thought, that will be displayed as an emoji
+- added a component for emojis
+
 
 ## View it live
 
 Send some Happy thoughts <3 : https://nehrwein-happy-thoughts.netlify.app/
+
+Visit my deployed API here https://nehrwein-happy-thoughts-api.herokuapp.com
+
+Documentation: https://documenter.getpostman.com/view/18068162/UVXdNe6K
